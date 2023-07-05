@@ -8,6 +8,10 @@
 # testing
 /coverage
 
+# img
+/img
+/src/bud.jpg
+
 # production
 /build
 
