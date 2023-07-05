@@ -19,7 +19,7 @@ function AboutPage() {
       <img
         className="avatar"
         src={user.imageUrl}
-        alt={"Photo of " + user.name}
+        alt={"The photo of " + user.name}
         style={{
           width: user.imageSize,
           height: user.imageSize,
