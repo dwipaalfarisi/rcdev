@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 const user = {
@@ -25,11 +25,13 @@ const listItems = products.map((product) => (
 ));
 
 function MyButton() {
+  const [count, setCount] = useState(0);
+
   function handleClick() {
-    alert("Button clicked!");
+    setCount(count + 1);
   }
 
-  return <button onClick={handleClick}>Click me!</button>;
+  return <button onClick={handleClick}>Button clicked {count} times!</button>;
 }
 
 function AboutPage() {
@@ -55,9 +57,9 @@ export default function MyApp() {
     <div>
       <h1>My App</h1>
       <MyButton />
+      <MyButton />
       <AboutPage />
       <ul>{listItems}</ul>
     </div>
   );
 }
-// NEXT: Updating the screen -> useState
