@@ -24,14 +24,8 @@ const listItems = products.map((product) => (
   </li>
 ));
 
-function MyButton() {
-  const [count, setCount] = useState(0);
-
-  function handleClick() {
-    setCount(count + 1);
-  }
-
-  return <button onClick={handleClick}>Button clicked {count} times!</button>;
+function MyButton({ count, onClick }) {
+  return <button onClick={onClick}>Clicked {count} times!</button>;
 }
 
 function AboutPage() {
@@ -53,11 +47,16 @@ function AboutPage() {
 }
 
 export default function MyApp() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
   return (
     <div>
       <h1>My App</h1>
-      <MyButton />
-      <MyButton />
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
       <AboutPage />
       <ul>{listItems}</ul>
     </div>
