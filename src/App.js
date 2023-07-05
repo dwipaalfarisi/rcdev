@@ -7,8 +7,29 @@ const user = {
   imageSize: 90,
 };
 
+const products = [
+  { title: "Cabbage", isFruit: false, id: 1 },
+  { title: "Carrot", isFruit: false, id: 2 },
+  { title: "Apple", isFruit: true, id: 3 },
+];
+
+const listItems = products.map((product) => (
+  <li
+    key={product.id}
+    style={{
+      color: product.isFruit ? "magenta" : "darkgreen",
+    }}
+  >
+    {product.title}
+  </li>
+));
+
 function MyButton() {
-  return <button>Click me!</button>;
+  function handleClick() {
+    alert("Button clicked!");
+  }
+
+  return <button onClick={handleClick}>Click me!</button>;
 }
 
 function AboutPage() {
@@ -35,6 +56,8 @@ export default function MyApp() {
       <h1>My App</h1>
       <MyButton />
       <AboutPage />
+      <ul>{listItems}</ul>
     </div>
   );
 }
+// NEXT: Updating the screen -> useState
