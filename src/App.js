@@ -24,8 +24,18 @@ const listItems = products.map((product) => (
   </li>
 ));
 
+// shared state
 function MyButton({ count, onClick }) {
   return <button onClick={onClick}>Clicked {count} times!</button>;
+}
+
+// individual state
+function LoveButton() {
+  const [loveCount, setLoveCount] = useState(0);
+  function handleLoveClick() {
+    setLoveCount(loveCount + 1);
+  }
+  return <button onClick={handleLoveClick}>Love {loveCount} times!</button>;
 }
 
 function AboutPage() {
@@ -57,6 +67,8 @@ export default function MyApp() {
       <h1>My App</h1>
       <MyButton count={count} onClick={handleClick} />
       <MyButton count={count} onClick={handleClick} />
+      <br />
+      <LoveButton />
       <AboutPage />
       <ul>{listItems}</ul>
     </div>
